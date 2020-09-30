@@ -1,24 +1,28 @@
 
 P0: main.o argHandler.o fileManager.o util.o tree.o
-	g++ main.o util.o argHandler.o fileManager.o tree.o -o P0
+	g++ -std=gnu++11 main.o util.o argHandler.o fileManager.o tree.o -o P0
 
 argHandler.o: argHandler.cpp argHandler.h
-	g++ -c argHandler.cpp
+	g++ -c -std=gnu++11 argHandler.cpp
 	
 fileManager.o: fileManager.cpp fileManager.h
-	g++ -c fileManager.cpp
+	g++ -c -std=gnu++11 fileManager.cpp
 
 util.o: util.cpp util.h
-	g++ -c util.cpp
+	g++ -c -std=gnu++11 util.cpp
 
 tree.o: tree.cpp tree.h
-	g++ -c tree.cpp
+	g++ -c -std=gnu++11 tree.cpp
 
 main.o: main.cpp
-	g++ -c main.cpp
+	g++ -c -std=gnu++11 main.cpp
 
 clean:
-	rm *.o P0 out.*
+	rm *.o P0
+
+noout:
+	rm out.*
 
 cobj:
 	rm *.o
+
