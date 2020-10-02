@@ -11,10 +11,6 @@ char getFirstChar(set<string> s) {
 	return word[0];
 }
 
-void indent(int depth) {
-	for (int i = 0; i < 2 * depth; i++) cout << " ";
-}
-
 void printSetContents(set<string> s){
 	cout << "{ " ;
 	for (set<string>::iterator it = s.begin(); it!= s.end(); ++it) cout << *it << " ";  
@@ -33,10 +29,10 @@ void tokenize(string s, vector<string> &setToBuild) {
 	// Splites string "s" into tokens and each token is inserted
 	// into the Set "setToBuild".
 	stringstream ssin(s);
-
-	for (int i = 0; ssin.good(); i++){
-		string word;
-		ssin >> word;
+        string word;
+	while(ssin >> word) {
 		setToBuild.push_back(word);
 	}
+	
+	setToBuild.push_back("");
 }

@@ -33,12 +33,16 @@ string getTextFromFile(string fileName) {
 	return textToBuildTree;	
 }
 
-void makeFileFromOutput(string name, node_t * root){
+void makeFileFromOutput(string filename, string name, node_t * root){
 	// Generates a given file based on the "name" given to the function then 
 	// captures the output of the called function which is related to the file name.
+	
+	if(filename == "" ) {
+		filename = "out";	
+	}
 
 	fstream file;
-	string fileWithExt = "out." + name; 
+	string fileWithExt = filename + "." + name; 
 	file.open(fileWithExt.c_str(),  ios_base::out); 
 	string line; 
 

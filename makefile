@@ -21,7 +21,7 @@ clean:
 	rm *.o P0
 
 noout:
-	rm out.*
+	rm *.postorder *.preorder *.inorder
 
 cobj:
 	rm *.o

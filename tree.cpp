@@ -7,6 +7,10 @@
 
 using namespace std;
 
+void indent(int depth) {
+        for (int i = 0; i < 2 * depth; i++) cout << " ";
+}
+
 void printPreorder(node_t * nd){
 	// Root, Left, Right	
 	if (nd == NULL) return;
@@ -102,6 +106,10 @@ node_t * insertNode(node_t * root, string word) {
 }
 
 node_t * buildTree(string text) {
+	if (text.empty() || text[0] == '\n'){
+		cout << "\nError: no input..." << endl;
+		exit(1);
+	}
 	// Building the tree that is to be printed later.
 	node_t * root = NULL;
 
@@ -110,8 +118,9 @@ node_t * buildTree(string text) {
 
 	// splitting the "text" variable into a set of unordered words
 	tokenize(text, tokens); 
-
-	for (int i = 0; i < tokens.size() - 1; i++) root = insertNode(root, tokens.at(i));
+	
+	int range = tokens.size() - 1; 
+	for (int i = 0; i < range; i++) root = insertNode(root, tokens.at(i));
 
 	return root;
 }
